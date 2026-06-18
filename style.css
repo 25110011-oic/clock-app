@@ -37,7 +37,7 @@ body {
 /* ★ 日付の位置（左下に固定） */
 #date {
   position: absolute;
-  bottom: 40px;   /* ← ここで高さ調整（20〜60で微調整OK） */
+  bottom: 20px;   /* ← ここで高さ調整（20〜60で微調整OK） */
   left: 20px;
   font-size: 2rem;
   opacity: 1;
