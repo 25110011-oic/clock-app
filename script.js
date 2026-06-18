@@ -5,43 +5,10 @@ function updateClock() {
   const m = String(now.getMinutes()).padStart(2, '0');
   const s = String(now.getSeconds()).padStart(2, '0');
 
-  const hEl = document.getElementById("h");
-  const mEl = document.getElementById("m");
-  const sEl = document.getElementById("s");
-
-  // digit クラスを付ける（初回のみ）
-  [hEl, mEl, sEl].forEach(el => {
-    if (!el.classList.contains("digit")) {
-      el.classList.add("digit");
-    }
-  });
-
-  // 時
-  if (hEl.innerText !== h) {
-    hEl.classList.add("fade");
-    setTimeout(() => {
-      hEl.innerText = h;
-      hEl.classList.remove("fade");
-    }, 120);
-  }
-
-  // 分
-  if (mEl.innerText !== m) {
-    mEl.classList.add("fade");
-    setTimeout(() => {
-      mEl.innerText = m;
-      mEl.classList.remove("fade");
-    }, 120);
-  }
-
-  // 秒
-  if (sEl.innerText !== s) {
-    sEl.classList.add("fade");
-    setTimeout(() => {
-      sEl.innerText = s;
-      sEl.classList.remove("fade");
-    }, 120);
-  }
+  // そのまま即時反映（アニメーションなし）
+  document.getElementById("h").innerText = h;
+  document.getElementById("m").innerText = m;
+  document.getElementById("s").innerText = s;
 
   // 日付と曜日
   const dateEl = document.getElementById("date");
