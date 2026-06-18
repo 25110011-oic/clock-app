@@ -3,18 +3,44 @@ function updateClock() {
   const now = new Date();
   const h = String(now.getHours()).padStart(2, '0');
   const m = String(now.getMinutes()).padStart(2, '0');
-
-  const timeEl = document.getElementById("time");
   const s = String(now.getSeconds()).padStart(2, '0');
-  const newTime = `${h}:${m}:${s}`;
 
-  // 時間が変わったときだけフェードアニメーション
-  if (timeEl.innerText !== newTime) {
-    timeEl.style.opacity = 0;
+  const hEl = document.getElementById("h");
+  const mEl = document.getElementById("m");
+  const sEl = document.getElementById("s");
+
+  // digit クラスを付ける（初回のみ）
+  [hEl, mEl, sEl].forEach(el => {
+    if (!el.classList.contains("digit")) {
+      el.classList.add("digit");
+    }
+  });
+
+  // 時
+  if (hEl.innerText !== h) {
+    hEl.classList.add("fade");
     setTimeout(() => {
-      timeEl.innerText = newTime;
-      timeEl.style.opacity = 1;
-    }, 200);
+      hEl.innerText = h;
+      hEl.classList.remove("fade");
+    }, 120);
+  }
+
+  // 分
+  if (mEl.innerText !== m) {
+    mEl.classList.add("fade");
+    setTimeout(() => {
+      mEl.innerText = m;
+      mEl.classList.remove("fade");
+    }, 120);
+  }
+
+  // 秒
+  if (sEl.innerText !== s) {
+    sEl.classList.add("fade");
+    setTimeout(() => {
+      sEl.innerText = s;
+      sEl.classList.remove("fade");
+    }, 120);
   }
 
   // 日付と曜日
@@ -43,7 +69,7 @@ document.getElementById("bgPicker").onchange = (e) => {
 
   reader.onload = () => {
     document.body.style.backgroundImage = `url(${reader.result})`;
-    localStorage.setItem("bgImage", reader.result); // 保存
+    localStorage.setItem("bgImage", reader.result);
   };
 
   reader.readAsDataURL(file);
@@ -54,11 +80,3 @@ const saved = localStorage.getItem("bgImage");
 if (saved) {
   document.body.style.backgroundImage = `url(${saved})`;
 }
-
-
-// ===============================
-// 曜日アイコンの動作
-// ===============================
-document.getElementById("weekdayIcon").onclick = () => {
-  alert("Sun / Mon / Tue / Wed / Thu / Fri / Sat");
-};

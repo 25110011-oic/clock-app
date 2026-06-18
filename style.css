@@ -18,11 +18,20 @@ body {
   transform: translateY(-50%);
 }
 
-/* 時間の表示（大きく・丸ゴシック・滑らかアニメ） */
+/* 時間の表示 */
 #time {
-  font-size: 9rem;   /* ← 好みに応じて 7rem〜10rem でもOK */
+  font-size: 9rem;
   font-weight: 600;
-  transition: opacity 0.4s ease-in-out;
+}
+
+/* アニメーション用 */
+.digit {
+  display: inline-block;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.digit.fade {
+  opacity: 0;
 }
 
 /* 日付の表示 */
@@ -46,7 +55,6 @@ body {
   user-select: none;
 }
 
-/* アイコンをタップしやすくする */
 #icons div {
   cursor: pointer;
   transition: transform 0.2s ease;
