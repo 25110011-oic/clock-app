@@ -28,7 +28,7 @@ body {
 /* 日付の表示 */
 #date {
   position: absolute;
-  bottom: 20px;
+  bottom: 60px;
   left: 20px;
   font-size: 2rem;
   opacity: 1;
