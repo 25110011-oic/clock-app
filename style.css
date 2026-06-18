@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-color: #000;
+  font-family: "Noto Sans JP", "Rounded Mplus 1c", sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+/* 時計全体の位置 */
+#clock {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+/* 時間の表示（大きく・丸ゴシック・滑らかアニメ） */
+#time {
+  font-size: 6rem;
+  font-weight: 600;
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* 日付の表示 */
+#date {
+  margin-top: 10px;
+  font-size: 1.4rem;
+  opacity: 0.8;
+}
+
+/* 右下のアイコン配置 */
+#icons {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 20px;
+  font-size: 2rem;
+  opacity: 0.9;
+  user-select: none;
+}
+
+/* アイコンをタップしやすくする */
+#icons div {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#icons div:active {
+  transform: scale(0.85);
+}
