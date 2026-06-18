@@ -5,7 +5,8 @@ function updateClock() {
   const m = String(now.getMinutes()).padStart(2, '0');
 
   const timeEl = document.getElementById("time");
-  const newTime = `${h}:${m}`;
+  const s = String(now.getSeconds()).padStart(2, '0');
+  const newTime = `${h}:${m}:${s}`;
 
   // 時間が変わったときだけフェードアニメーション
   if (timeEl.innerText !== newTime) {
@@ -18,7 +19,7 @@ function updateClock() {
 
   // 日付と曜日
   const dateEl = document.getElementById("date");
-  const week = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  const week = ["日","月","火","水","木","金","土"];
   const w = week[now.getDay()];
   dateEl.innerText =
     `${now.getFullYear()}.${now.getMonth()+1}.${now.getDate()} (${w})`;
