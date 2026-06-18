@@ -9,7 +9,7 @@ body {
   overflow: hidden;
 }
 
-/* 時計全体の位置 */
+/* 時計全体の位置（中央） */
 #clock {
   position: absolute;
   top: 40%;
@@ -34,10 +34,10 @@ body {
   opacity: 0;
 }
 
-/* 日付の表示 */
+/* ★ 日付の位置（左下に固定） */
 #date {
   position: absolute;
-  bottom: 40px;
+  bottom: 40px;   /* ← ここで高さ調整（20〜60で微調整OK） */
   left: 20px;
   font-size: 2rem;
   opacity: 1;
